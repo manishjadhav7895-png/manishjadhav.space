@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>Manish Jadhav — Video Editor & Motion Designer</title>
+  <meta name="description" content="Portfolio of Manish Jadhav, professional Video Editor and Motion Designer. Story-driven videos, kinetic motion graphics, and cinematic visual experiences." />
+  <meta property="og:title" content="Manish Jadhav — Video Editor & Motion Designer" />
+  <meta property="og:description" content="Portfolio of Manish Jadhav, professional Video Editor and Motion Designer. Story-driven videos, kinetic motion graphics, and cinematic visual experiences." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat:wght@600;700&family=Dancing+Script:wght@600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Anton&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="cinematic-grain">
+
+  <!-- Subtle Preloading Bar -->
+  <div id="loader" class="loader">
+    <div class="loader-track">
+      <div id="loader-bar" class="loader-bar"></div>
+    </div>
+  </div>
+
+  <!-- Continuous Ambient Liquid/Glass Membrane Overlay Canvas -->
+  <div class="liquid-overlay" aria-hidden="true">
+    <div class="liquid-backdrop"></div>
+    <canvas id="liquid-canvas"></canvas>
+    <div class="liquid-vignette"></div>
+  </div>
+
+  <!-- Cinematic Custom Cursor (Precision Dot + Inertial Red Ring) -->
+  <div id="cinematic-cursor" class="cinematic-cursor" aria-hidden="true">
+    <div class="cursor-ring">
+      <div class="cursor-play-icon"></div>
+    </div>
+    <div class="cursor-dot"></div>
+  </div>
+
+  <!-- Fixed Top Navigation Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <!-- Top-Left: VIDEO EDITOR / MOTION DESIGNER -->
+      <a href="#hero-track" class="brand-badge">
+        <span class="badge-primary">VIDEO EDITOR</span>
+        <span class="badge-secondary">MOTION DESIGNER</span>
+      </a>
+
+      <!-- Top-Right: OPEN TO WORK -->
+      <div class="status-badge">
+        <div class="pulse-container">
+          <span class="pulse-ring"></span>
+          <span class="pulse-dot"></span>
+        </div>
+        <span class="status-text">OPEN TO WORK</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       SECTION 1: HERO SCROLL SEQUENCE (FRAME ANIMATION + EDITORIAL HERO)
+       ========================================================================= -->
+  <section id="hero-track" class="hero-track" aria-label="Hero Animation and Presentation">
+    <div class="hero-sticky-viewport">
+      <!-- High DPI 120-Frame Canvas -->
+      <canvas id="animation-canvas" class="animation-canvas"></canvas>
+
+      <!-- Bottom & Top Vignette Gradients for Text Contrast -->
+      <div class="hero-vignette-bottom"></div>
+      <div class="hero-vignette-top"></div>
+
+      <!-- Hero Editorial Layout Grid (Fades in dynamically as animation completes) -->
+      <div id="hero-content" class="hero-content">
+        <div class="hero-container">
+
+          <!-- Main Row -->
+          <div class="hero-grid">
+            
+            <!-- Left Column: Name, Role, Copy & CTAs -->
+            <div class="hero-left">
+              <div class="hero-greeting hero-stagger-item" style="--stagger-order: 1;">
+                <span class="font-script">Hello, I'm</span>
+              </div>
+              <div class="hero-name hero-stagger-item" style="--stagger-order: 2;">
+                <h1 class="name-first">MANISH</h1>
+                <h1 class="name-last">JADHAV</h1>
+              </div>
+              <div class="hero-role hero-stagger-item" style="--stagger-order: 3;">
+                <span>VIDEO EDITOR & MOTION DESIGNER</span>
+              </div>
+              <p class="hero-copy hero-stagger-item" style="--stagger-order: 4;">
+                I create story-driven videos, motion graphics and visual experiences for brands, businesses and creators.
+              </p>
+              <div class="hero-ctas hero-stagger-item" style="--stagger-order: 5;">
+                <button type="button" id="btn-view-work" class="btn btn-primary">
+                  <span>VIEW MY WORK</span>
+                  <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+                <button type="button" id="btn-download-resume" class="btn btn-secondary">
+                  <span>DOWNLOAD RESUME</span>
+                  <svg class="icon-arrow-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- Center Clearance for Manish's Portrait -->
+            <div class="hero-center-clearance" aria-hidden="true"></div>
+
+            <!-- Right Column: Sparkle Quote & 3 Clean Stats -->
+            <div class="hero-right">
+              
+              <!-- Sparkle Star + Quote -->
+              <div class="quote-card hero-stagger-item" style="--stagger-order: 2;">
+                <div class="sparkle-badge">
+                  <svg class="sparkle-star" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0C12 7 7 12 0 12C7 12 12 17 12 24C12 17 17 12 24 12C17 12 12 7 12 0Z"/>
+                  </svg>
+                </div>
+                <div class="quote-text">
+                  <p>Turning ideas into</p>
+                  <p>visual stories.</p>
+                </div>
+              </div>
+
+              <!-- 3 Clean Minimal Stats -->
+              <div class="stats-stack hero-stagger-item" style="--stagger-order: 3;">
+                <div class="stat-item">
+                  <span class="stat-value">02+</span>
+                  <div class="stat-label">
+                    <span>YEARS</span>
+                    <span>EXPERIENCE</span>
+                  </div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                  <span class="stat-value">30+</span>
+                  <div class="stat-label">
+                    <span>CLIENTS</span>
+                    <span>WORKED WITH</span>
+                  </div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                  <span class="stat-value">250+</span>
+                  <div class="stat-label">
+                    <span>PROJECTS</span>
+                    <span>COMPLETED</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Small Tool Line -->
+          <div class="tools-line hero-stagger-item" style="--stagger-order: 4;">
+            <span>PREMIERE PRO · AFTER EFFECTS · PHOTOSHOP · ILLUSTRATOR</span>
+          </div>
+
+          <!-- Bottom Hero Bar -->
+          <div class="hero-footer-bar hero-stagger-item" style="--stagger-order: 5;">
+            <button type="button" id="btn-selected-work" class="footer-link-left">
+              <span>SELECTED WORK</span>
+              <svg class="icon-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="footer-rule"></div>
+            <button type="button" id="btn-view-all" class="footer-link-right">
+              <span>VIEW ALL</span>
+              <svg class="icon-arrow-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Subtle Scroll Down Indicator -->
+      <div id="hero-scroll-cue" class="hero-scroll-cue">
+        <span>SCROLL TO EXPLORE</span>
+        <div class="cue-mouse">
+          <div class="cue-wheel"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SECTION 2: PAGE 3 — SHOWREEL SECTION (16:9 CINEMATIC PLAYER)
+       ========================================================================= -->
+  <section id="page-3-showreel-section" class="section showreel-section" aria-label="Cinematic Showreel">
+    <div class="section-container">
+      
+      <!-- Section Header -->
+      <div class="section-header">
+        <h2 class="section-title motion-reveal motion-stagger-1">SHOWREEL</h2>
+        <div class="section-subtitle motion-reveal motion-stagger-2">
+          <span class="highlight">VIDEO EDITOR</span>
+          <span class="dot">·</span>
+          <span>MOTION DESIGNER</span>
+        </div>
+      </div>
+
+      <!-- 16:9 Widescreen Video Player Frame -->
+      <div id="showreel-container" class="showreel-frame motion-stage-reveal motion-stagger-3">
+        <iframe
+          id="showreel-iframe"
+          class="showreel-iframe"
+          src="https://www.youtube.com/embed/6-ZfLqYV0vE"
+          title="Showreel"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
+      </div>
+
+      <!-- Scroll cue to Next Section -->
+      <div class="section-cue motion-reveal motion-stagger-4">
+        <a href="#page-4-story-reels-section" class="cue-link">
+          <span>EXPLORE VERTICAL REELS & STORIES ↓</span>
+          <svg class="cue-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SECTION 3: PAGE 4 — STORY & VERTICAL REELS SHOWCASE (9:16 CARDS)
+       ========================================================================= -->
+  <section id="page-4-story-reels-section" class="section vertical-section" aria-label="Vertical Reels and Social Stories">
+    <div class="section-container">
+      
+      <!-- Section Header -->
+      <div class="section-header">
+        <h2 class="section-title motion-reveal motion-stagger-1">SHORT-FORM VIDEOS</h2>
+      </div>
+
+      <!-- 3D Overlapping Depth Carousel Stage -->
+      <div class="reels-carousel-wrapper motion-stage-reveal motion-stagger-2">
+        <div class="reels-ambient-glow" aria-hidden="true"></div>
+
+        <button type="button" id="btn-reel-prev" class="carousel-arrow arrow-left" aria-label="Previous Video">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+
+        <div id="reels-track" class="reels-track">
+          <!-- Populated dynamically via script.js for 3D depth carousel -->
+        </div>
+
+        <button type="button" id="btn-reel-next" class="carousel-arrow arrow-right" aria-label="Next Video">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+      </div>
+
+      <!-- Pagination Dots & Audio Controls -->
+      <div class="reels-nav-bar motion-reveal motion-stagger-3">
+        <div id="reels-dots" class="carousel-dots"></div>
+        <button type="button" id="btn-reels-sound-toggle" class="btn-sound-pill" aria-label="Toggle Audio" title="Unmute Audio">
+          <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5L6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15" stroke="currentColor" stroke-width="2"/><line x1="17" y1="9" x2="23" y2="15" stroke="currentColor" stroke-width="2"/></svg>
+          <span id="reels-sound-text">SOUND OFF</span>
+        </button>
+      </div>
+
+      <!-- Scroll cue to Page 5 -->
+      <div class="section-cue motion-reveal motion-stagger-4">
+        <a href="#page-5-longform-showcase" class="cue-link">
+          <span>EXPLORE WIDESCREEN & LONG-FORM SHOWCASE ↓</span>
+          <svg class="cue-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SECTION 4: PAGE 5 — LONG-FORM VIDEOS (SCROLL-DRIVEN 3D EXPANDING CAROUSEL)
+       ========================================================================= -->
+  <section id="page-5-longform-showcase" class="longform-track" aria-label="Long-Form Videos Showcase">
+    <div class="longform-sticky-viewport">
+      <div class="section-container longform-container">
+        
+        <!-- Section Header -->
+        <div class="section-header longform-header">
+          <div class="section-tag motion-reveal motion-stagger-1">03 // COMMERCIAL & DOCUMENTARY</div>
+          <h2 class="section-title motion-reveal motion-stagger-2">LONG-FORM VIDEOS</h2>
+        </div>
+
+        <!-- 3D Expanding-Card Carousel Stage (Matching Reference) -->
+        <div class="longform-stage-wrapper motion-stage-reveal motion-stagger-3">
+          <div class="longform-ambient-glow" aria-hidden="true"></div>
+
+          <div id="longform-stage" class="longform-stage">
+            <!-- All 5 long-form cards populated and animated dynamically in script.js -->
+          </div>
+
+          <!-- Carousel Controls: Centered Arrows + Dots (Matching Reference) -->
+          <div class="longform-nav-bar">
+            <div class="longform-arrows">
+              <button type="button" id="btn-longform-prev" class="lf-nav-btn" aria-label="Previous Video">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
+              </button>
+              <button type="button" id="btn-longform-next" class="lf-nav-btn" aria-label="Next Video">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+              </button>
+            </div>
+            <div class="longform-controls-row">
+              <div id="longform-dots" class="carousel-dots lf-dots"></div>
+              <button type="button" id="btn-longform-sound-toggle" class="btn-sound-pill" aria-label="Toggle Long-Form Audio" title="Unmute Audio">
+                <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5L6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15" stroke="currentColor" stroke-width="2"/><line x1="17" y1="9" x2="23" y2="15" stroke="currentColor" stroke-width="2"/></svg>
+                <span id="longform-sound-text">SOUND OFF</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Scroll cue to Contact -->
+        <div class="section-cue longform-cue motion-reveal motion-stagger-4">
+          <a href="#page-6-contact-section" class="cue-link">
+            <span>LET'S WORK TOGETHER ↓</span>
+            <svg class="cue-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SECTION 5: PAGE 6 — FINAL CONTACT SECTION
+       ========================================================================= -->
+  <footer id="page-6-contact-section" class="contact-section" aria-label="Contact Section">
+    <div class="contact-top-line"></div>
+
+    <div class="contact-inner">
+      
+      <!-- Red Connect Tag -->
+      <div class="contact-tag motion-reveal motion-stagger-1">
+        <span class="tag-pulse"></span>
+        <span>LET'S CONNECT</span>
+      </div>
+
+      <!-- Editorial Headline -->
+      <h2 class="contact-headline motion-reveal motion-stagger-2">
+        <span class="headline-white">LET'S MAKE SOMETHING</span>
+        <span class="headline-red">WORTH WATCHING.</span>
+      </h2>
+
+      <!-- Description -->
+      <p class="contact-sub motion-reveal motion-stagger-3">
+        Looking for a video editor or motion designer?<br />
+        Let's talk about your next project.
+      </p>
+
+      <!-- CTA Button -->
+      <div class="contact-cta-wrapper motion-reveal motion-stagger-3">
+        <a href="mailto:manishjadhav7895@gmail.com?subject=Project%20Inquiry%20%E2%80%94%20Video%20Editing%20%26%20Motion%20Design" class="btn-start-project">
+          <svg class="icon-send" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+          <span>START A PROJECT</span>
+        </a>
+      </div>
+
+      <!-- Contact Identity + Copy Email -->
+      <div class="identity-card motion-reveal motion-stagger-4">
+        <div class="identity-row">
+          <span class="identity-name">MANISH JADHAV</span>
+          <span class="identity-sep">·</span>
+          <a href="mailto:manishjadhav7895@gmail.com" class="identity-email">manishjadhav7895@gmail.com</a>
+          <button type="button" id="btn-copy-email" class="btn-copy" title="Copy Email">
+            <svg id="icon-copy" class="icon-copy-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+            <svg id="icon-check" class="icon-check-svg hidden text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+            <span id="copy-tooltip" class="copy-text">Copy</span>
+          </button>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="contact-links">
+          <button type="button" id="btn-open-resume-footer" class="link-item">
+            <svg class="link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+            <span>VIEW RESUME</span>
+          </button>
+          <span class="link-bullet">·</span>
+          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="link-item">
+            <span>LINKEDIN</span>
+            <svg class="link-ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+          </a>
+          <span class="link-bullet">·</span>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="link-item">
+            <span>INSTAGRAM</span>
+            <svg class="link-ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="contact-bottom-bar motion-reveal motion-stagger-4">
+        <button type="button" id="btn-back-to-top" class="btn-back-top">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg>
+          <span>BACK TO TOP</span>
+        </button>
+        <div class="copyright-text">
+          © 2025/2026 MANISH JADHAV · ALL RIGHTS RESERVED.
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- =========================================================================
+       RESUME MODAL COMPONENT
+       ========================================================================= -->
+  <div id="resume-modal" class="modal-backdrop" aria-hidden="true">
+    <div class="modal-card">
+      
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <div class="modal-dot"></div>
+          <div>
+            <h3 class="modal-filename">MANISH_JADHAV_RESUME_2025.PDF</h3>
+            <span class="modal-filesize">CURRICULUM VITAE · 142 KB</span>
+          </div>
+        </div>
+        <div class="modal-actions">
+          <button type="button" id="btn-modal-download" class="btn-modal-dl">
+            <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+            <span id="dl-text">Download CV</span>
+          </button>
+          <button type="button" id="btn-modal-close" class="btn-modal-close" aria-label="Close Modal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="modal-body">
+        
+        <!-- Profile Header -->
+        <div class="resume-profile">
+          <div>
+            <span class="resume-role-tag">Video Editor & Motion Designer</span>
+            <h2 class="resume-name">MANISH JADHAV</h2>
+            <p class="resume-summary">
+              Specializing in story-driven narrative editing, dynamic commercial rhythm, kinetic typography, and immersive audio design for global brands and creators.
+            </p>
+          </div>
+          <div class="resume-meta">
+            <div class="meta-available">
+              <span class="meta-dot"></span>
+              <span>Available for Full-time & Freelance</span>
+            </div>
+            <div class="meta-location">Worldwide Remote / Hybrid</div>
+            <div class="meta-email">manishjadhav7895@gmail.com</div>
+          </div>
+        </div>
+
+        <!-- Stats Grid -->
+        <div class="resume-stats-grid">
+          <div class="resume-stat-box">
+            <span class="resume-stat-num">02+</span>
+            <span class="resume-stat-lbl">Years Experience</span>
+          </div>
+          <div class="resume-stat-box">
+            <span class="resume-stat-num">30+</span>
+            <span class="resume-stat-lbl">Clients Worked With</span>
+          </div>
+          <div class="resume-stat-box">
+            <span class="resume-stat-num">250+</span>
+            <span class="resume-stat-lbl">Projects Completed</span>
+          </div>
+        </div>
+
+        <!-- Software Toolkit -->
+        <div class="resume-section">
+          <h4 class="resume-sec-title">
+            <svg class="sec-icon text-red" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+            Software & Post-Production Toolkit
+          </h4>
+          <div class="skills-grid">
+            <div class="skill-pill"><span class="skill-name">Premiere Pro</span><span class="skill-desc">Expert · Editing & Pacing</span></div>
+            <div class="skill-pill"><span class="skill-name">After Effects</span><span class="skill-desc">Advanced · Motion & VFX</span></div>
+            <div class="skill-pill"><span class="skill-name">Photoshop</span><span class="skill-desc">Advanced · Assets & Prep</span></div>
+            <div class="skill-pill"><span class="skill-name">Illustrator</span><span class="skill-desc">Proficient · Vector Art</span></div>
+            <div class="skill-pill"><span class="skill-name">DaVinci Resolve</span><span class="skill-desc">Color Grading & Curves</span></div>
+            <div class="skill-pill"><span class="skill-name">Audition</span><span class="skill-desc">Audio & Foley Design</span></div>
+            <div class="skill-pill"><span class="skill-name">Kinetic Typography</span><span class="skill-desc">Custom Animation</span></div>
+            <div class="skill-pill"><span class="skill-name">Sound Design</span><span class="skill-desc">Rhythm & Sync</span></div>
+          </div>
+        </div>
+
+        <!-- Experience Timeline -->
+        <div class="resume-section">
+          <h4 class="resume-sec-title">
+            <svg class="sec-icon text-red" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+            Professional Experience & Projects
+          </h4>
+          <div class="timeline-list">
+            <div class="timeline-card">
+              <div class="timeline-top">
+                <span class="timeline-title">Lead Video Editor & Motion Designer</span>
+                <span class="timeline-date">2023 — Present</span>
+              </div>
+              <div class="timeline-company">Independent Practice & Studio Collaborations</div>
+              <p class="timeline-desc">
+                Edited and created 250+ story-driven video campaigns for brands, executive coaches, and tech businesses. Engineered high-retention cuts that amassed multi-million organic views.
+              </p>
+            </div>
+            <div class="timeline-card">
+              <div class="timeline-top">
+                <span class="timeline-title">Commercial Motion Graphic Designer</span>
+                <span class="timeline-date">2022 — 2023</span>
+              </div>
+              <div class="timeline-company">Brand Identity & Digital Content</div>
+              <p class="timeline-desc">
+                Developed customized kinetic typography packages, glitch HUD sequences, and promotional launch videos in After Effects and Premiere Pro.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="modal-footer">
+        <a href="mailto:manishjadhav7895@gmail.com" class="modal-footer-email">
+          <svg class="icon-sm text-red" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <span>manishjadhav7895@gmail.com</span>
+        </a>
+        <button type="button" id="btn-modal-download-footer" class="btn btn-primary btn-sm">
+          <span>Download Full Resume ↓</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="lenis.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
